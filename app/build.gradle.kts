@@ -39,6 +39,9 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    // Navigation Dependencies
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
     // View Model Dependency
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     // Lottie Dependency
