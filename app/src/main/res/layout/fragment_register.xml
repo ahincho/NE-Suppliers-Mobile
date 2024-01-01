@@ -25,6 +25,7 @@
             android:layout_height="225dp"
             android:src="@drawable/register"/>
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerTilName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/sky_blue">
@@ -36,6 +37,7 @@
                 android:inputType="textPersonName"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerTilLastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/sky_blue">
@@ -47,6 +49,7 @@
                 android:inputType="textPersonName"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerTilUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/sky_blue">
@@ -58,6 +61,7 @@
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerTilEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/sky_blue">
@@ -69,6 +73,7 @@
                 android:inputType="textEmailAddress"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerTilPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/sky_blue">
@@ -80,6 +85,7 @@
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/registerBtnSend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
