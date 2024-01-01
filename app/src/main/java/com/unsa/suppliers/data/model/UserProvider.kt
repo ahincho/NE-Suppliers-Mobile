@@ -6,9 +6,12 @@ class UserProvider {
             val user = users.find { it.username == username }
             return user?.let { it.password == password } ?: false
         }
-        private val users = listOf<UserModel> (
-            UserModel(1, "Angel", "Hincho", "ahincho", "ahincho@unsa.edu.pe", "ahincho@dev"),
-            UserModel(2, "Erick", "Anco", "eanco", "eanco@unsa.edu.pe", "eanco@dev@")
+        fun add(user: UserModel) {
+            users.add(user)
+        }
+        private val users = mutableListOf<UserModel> (
+            UserModel("Angel", "Hincho", "ahincho", "ahincho@unsa.edu.pe", "ahincho@dev"),
+            UserModel("Erick", "Anco", "eanco", "eanco@unsa.edu.pe", "eanco@dev@")
         )
     }
 }
