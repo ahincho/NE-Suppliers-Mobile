@@ -6,11 +6,15 @@ import androidx.lifecycle.viewModelScope
 import com.unsa.suppliers.data.dtos.auth.LoginRequest
 import com.unsa.suppliers.data.dtos.auth.LoginResponse
 import com.unsa.suppliers.domain.LoginUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class AuthViewModel : ViewModel() {
-    private var loginUseCase = LoginUseCase()
+@HiltViewModel
+class AuthViewModel @Inject constructor (
+    private val loginUseCase: LoginUseCase
+) : ViewModel() {
     val token = MutableLiveData<String>()
     fun login(username: String, password: String) {
         var response: LoginResponse?
