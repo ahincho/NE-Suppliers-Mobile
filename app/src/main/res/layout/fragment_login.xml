@@ -25,32 +25,39 @@
             android:layout_height="300dp"
             android:src="@drawable/login"/>
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/loginTilUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/black"
-            app:hintTextColor="@color/black">
+            app:hintTextColor="@color/black"
+            app:endIconMode="clear_text">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/loginEtUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textCursorDrawable="@color/blue"
                 android:hint="@string/username"
                 android:inputType="text"
                 tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/loginTilPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/black"
-            app:hintTextColor="@color/black">
+            app:hintTextColor="@color/black"
+            app:endIconMode="password_toggle">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/loginEtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textCursorDrawable="@color/blue"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/loginBtnSend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"

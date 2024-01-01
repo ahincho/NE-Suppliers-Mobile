@@ -11,4 +11,7 @@
     <string name="lastname">Lastname</string>
     <string name="email">Email</string>
     <string name="account_created_caption">Have you created an account?</string>
+    <!-- Error Messages -->
+    <string name="username_required">Username is required</string>
+    <string name="password_required">Password is required</string>
 </resources>
