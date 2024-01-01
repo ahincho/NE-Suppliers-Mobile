@@ -1,9 +1,7 @@
-package com.unsa.suppliers
+package com.unsa.suppliers.ui.view
 
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.unsa.suppliers.databinding.ActivityAuthBinding
 
 class AuthActivity : AppCompatActivity() {

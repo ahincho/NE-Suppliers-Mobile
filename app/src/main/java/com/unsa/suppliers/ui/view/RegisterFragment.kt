@@ -1,10 +1,13 @@
-package com.unsa.suppliers
+package com.unsa.suppliers.ui.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.unsa.suppliers.ui.view.ARG_PARAM1
+import com.unsa.suppliers.ui.view.ARG_PARAM2
+import com.unsa.suppliers.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
