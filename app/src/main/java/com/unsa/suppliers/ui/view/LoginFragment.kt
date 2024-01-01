@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.unsa.suppliers.R
 import com.unsa.suppliers.databinding.FragmentLoginBinding
 import com.unsa.suppliers.ui.viewmodel.AuthViewModel
@@ -31,35 +33,27 @@ class LoginFragment : Fragment() {
         _binding = null
     }
     private fun initListeners() {
-        binding.loginBtnSend.setOnClickListener {
-            if (usernameInputIsValid() && passwordInputIsValid()) {
-                val username = binding.loginEtUsername.text.toString()
-                val password = binding.loginEtPassword.text.toString()
-                if (authViewModel.login(username, password)) {
-                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
-                }
+        binding.loginBtnSend.setOnClickListener { attemptLogin() }
+        binding.loginTvRegister.setOnClickListener { findNavController().navigate(R.id.action_loginFragment_to_registerFragment) }
+    }
+    private fun attemptLogin() {
+        if (usernameInputIsValid() && passwordInputIsValid()) {
+            val username = binding.loginEtUsername.text.toString()
+            val password = binding.loginEtPassword.text.toString()
+            if (authViewModel.login(username, password)) {
+                Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
             }
-        }
-        binding.loginTvRegister.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }
     private fun usernameInputIsValid(): Boolean {
-        return if (binding.loginEtUsername.text.toString().isBlank()) {
-            binding.loginTilUsername.error = getString(R.string.username_required)
-            false
-        } else {
-            binding.loginTilUsername.error = null
-            true
-        }
+        return checkTextInput(binding.loginEtUsername, binding.loginTilUsername, getString(R.string.username_required))
     }
     private fun passwordInputIsValid(): Boolean {
-        return if (binding.loginEtPassword.text.toString().isBlank()) {
-            binding.loginTilPassword.error = getString(R.string.password_required)
-            false
-        } else {
-            binding.loginTilPassword.error = null
-            true
-        }
+        return checkTextInput(binding.loginEtPassword, binding.loginTilPassword, getString(R.string.password_required))
+    }
+    private fun checkTextInput(inputText: TextInputEditText, inputLayout: TextInputLayout, errorMessage: String): Boolean {
+        val isValid = inputText.text.toString().isNotBlank()
+        inputLayout.error = if (isValid) null else errorMessage
+        return isValid
     }
 }
