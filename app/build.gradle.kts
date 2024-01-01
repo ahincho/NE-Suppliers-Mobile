@@ -39,6 +39,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    // View Model Dependency
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     // Lottie Dependency
     implementation("com.airbnb.android:lottie-compose:6.2.0")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
