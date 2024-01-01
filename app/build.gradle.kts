@@ -47,6 +47,9 @@ dependencies {
     // Lottie Dependency
     implementation("com.airbnb.android:lottie-compose:6.2.0")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
+    // Retrofit Dependency
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     // Testing Dependencies
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
