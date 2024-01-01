@@ -18,7 +18,7 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private lateinit var authViewModel: AuthViewModel
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -27,6 +27,9 @@ class LoginFragment : Fragment() {
         val authActivity = activity as AuthActivity
         authViewModel = ViewModelProvider(authActivity)[AuthViewModel::class.java]
         initListeners()
+        authViewModel.token.observe(viewLifecycleOwner) {
+            Toast.makeText(context, "JWT: ${authViewModel.token.value}", Toast.LENGTH_SHORT).show()
+        }
     }
     override fun onDestroy() {
         super.onDestroy()
@@ -40,9 +43,7 @@ class LoginFragment : Fragment() {
         if (usernameInputIsValid() && passwordInputIsValid()) {
             val username = binding.loginEtUsername.text.toString()
             val password = binding.loginEtPassword.text.toString()
-            if (authViewModel.login(username, password)) {
-                Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
-            }
+            authViewModel.login(username, password)
         }
     }
     private fun usernameInputIsValid(): Boolean {
