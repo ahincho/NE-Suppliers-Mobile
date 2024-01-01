@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.unsa.suppliers.R
 import com.unsa.suppliers.databinding.FragmentLoginBinding
 import com.unsa.suppliers.ui.viewmodel.AuthViewModel
@@ -38,6 +39,9 @@ class LoginFragment : Fragment() {
                     Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+        binding.loginTvRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }
     private fun usernameInputIsValid(): Boolean {
