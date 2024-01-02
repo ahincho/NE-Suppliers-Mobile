@@ -8,18 +8,18 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class SupplierService @Inject constructor (
-    private val supplierApiClient: SupplierApiClient
+class SupplierAuthService @Inject constructor (
+    private val supplierAuthClient: SupplierAuthClient
 ) {
     suspend fun login(loginRequest: LoginRequest): LoginResponse? {
         return withContext(Dispatchers.IO) {
-            val response = supplierApiClient.login(loginRequest)
+            val response = supplierAuthClient.login(loginRequest)
             response.body()
         }
     }
     suspend fun register(userRequest: UserRequest): UserResponse? {
         return withContext(Dispatchers.IO) {
-            val response = supplierApiClient.register(userRequest)
+            val response = supplierAuthClient.register(userRequest)
             response.body()
         }
     }

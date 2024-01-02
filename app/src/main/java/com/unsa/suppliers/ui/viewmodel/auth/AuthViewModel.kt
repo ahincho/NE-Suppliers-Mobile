@@ -8,15 +8,18 @@ import com.unsa.suppliers.data.dtos.auth.LoginRequest
 import com.unsa.suppliers.data.dtos.auth.LoginResponse
 import com.unsa.suppliers.data.dtos.auth.UserRequest
 import com.unsa.suppliers.data.dtos.auth.UserResponse
+import com.unsa.suppliers.domain.GetJwtTokenUseCase
 import com.unsa.suppliers.domain.LoginUseCase
 import com.unsa.suppliers.domain.RegisterUseCase
+import com.unsa.suppliers.domain.SaveJwtTokenUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor (
-    private val preferencesRepository: PreferencesRepository,
+    private val saveJwtTokenUseCase: SaveJwtTokenUseCase,
+    private val getJwtTokenUseCase: GetJwtTokenUseCase,
     private val loginUseCase: LoginUseCase,
     private val registerUseCase: RegisterUseCase
 ) : ViewModel() {
@@ -28,7 +31,7 @@ class AuthViewModel @Inject constructor (
             response = loginUseCase.invoke(LoginRequest(username, password))
             if (response != null) {
                 token.postValue(response!!.token)
-                preferencesRepository.saveJwtToken(response!!.token)
+                saveJwtTokenUseCase(response!!.token)
             }
         }
     }
