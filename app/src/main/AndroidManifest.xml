@@ -25,7 +25,7 @@
             android:name=".ui.view.auth.AuthActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.view.suppliers.SupplierActivity"
+            android:name=".ui.view.main.MainActivity"
             android:exported="true" />
     </application>
 </manifest>

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.view.suppliers.SupplierActivity">
+    tools:context=".ui.view.main.MainActivity">
     <TextView
         android:id="@+id/supplierJwt"
         android:layout_width="wrap_content"
