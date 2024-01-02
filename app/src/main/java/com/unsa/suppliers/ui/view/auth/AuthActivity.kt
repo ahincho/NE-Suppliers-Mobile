@@ -1,10 +1,10 @@
-package com.unsa.suppliers.ui.view
+package com.unsa.suppliers.ui.view.auth
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.unsa.suppliers.databinding.ActivityAuthBinding
-import com.unsa.suppliers.ui.viewmodel.AuthViewModel
+import com.unsa.suppliers.ui.viewmodel.auth.AuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,5 +1,6 @@
-package com.unsa.suppliers.ui.view
+package com.unsa.suppliers.ui.view.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +13,8 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.unsa.suppliers.R
 import com.unsa.suppliers.databinding.FragmentLoginBinding
-import com.unsa.suppliers.ui.viewmodel.AuthViewModel
+import com.unsa.suppliers.ui.view.suppliers.SupplierActivity
+import com.unsa.suppliers.ui.viewmodel.auth.AuthViewModel
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
@@ -29,6 +31,9 @@ class LoginFragment : Fragment() {
         initListeners()
         authViewModel.token.observe(viewLifecycleOwner) {
             Toast.makeText(context, "JWT: ${authViewModel.token.value}", Toast.LENGTH_SHORT).show()
+            val intent = Intent(activity, SupplierActivity::class.java)
+            startActivity(intent)
+            (activity as AuthActivity).finish()
         }
     }
     override fun onDestroy() {

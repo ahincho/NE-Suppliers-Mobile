@@ -1,4 +1,4 @@
-package com.unsa.suppliers.ui.view
+package com.unsa.suppliers.ui.view.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ import com.unsa.suppliers.R
 import com.unsa.suppliers.data.model.UserModel
 import com.unsa.suppliers.data.model.UserProvider
 import com.unsa.suppliers.databinding.FragmentRegisterBinding
-import com.unsa.suppliers.ui.viewmodel.AuthViewModel
+import com.unsa.suppliers.ui.viewmodel.auth.AuthViewModel
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null

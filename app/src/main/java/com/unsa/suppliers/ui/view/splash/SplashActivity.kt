@@ -1,4 +1,4 @@
-package com.unsa.suppliers.ui.view
+package com.unsa.suppliers.ui.view.splash
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.unsa.suppliers.R
+import com.unsa.suppliers.ui.view.auth.AuthActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
