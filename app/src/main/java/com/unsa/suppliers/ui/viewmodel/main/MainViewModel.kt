@@ -21,7 +21,7 @@ class MainViewModel @Inject constructor (
         var token: String? = null
         viewModelScope.launch {
             token = getJwtTokenUseCase()
-            Log.d("PREFERENCE", token!!)
+            Log.d("MAIN VIEW MODEL PREFERENCE", token!!)
         }
         return token ?: "Nothing"
     }
