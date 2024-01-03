@@ -22,4 +22,12 @@
     <string name="suppliers">Suppliers</string>
     <string name="categories">Categories</string>
     <string name="countries">Countries</string>
+    <string name="supplier_image">Supplier Image</string>
+    <string name="category">Category</string>
+    <string name="ruc">RUC</string>
+    <string name="country">Country</string>
+    <string name="state">State</string>
+    <string name="delete">Delete</string>
+    <string name="reactivate">Reactivate</string>
+    <string name="inactivate">Inactivate</string>
 </resources>

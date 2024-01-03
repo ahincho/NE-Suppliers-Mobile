@@ -1,5 +1,6 @@
 package com.unsa.suppliers.data
 
+import android.util.Log
 import com.unsa.suppliers.data.dtos.auth.LoginRequest
 import com.unsa.suppliers.data.dtos.auth.LoginResponse
 import com.unsa.suppliers.data.dtos.auth.UserRequest
@@ -20,7 +21,21 @@ class SupplierRepository @Inject constructor (
     suspend fun attemptRegister(userRequest: UserRequest): UserResponse? {
         return supplierAuthService.register(userRequest)
     }
-    suspend fun attemptGetSuppliers(): List<SupplierResponse>? {
-        return supplierApiService.getSuppliers()
+    suspend fun attemptGetSuppliers(): MutableList<SupplierResponse>? {
+        val suppliers = supplierApiService.getSuppliers()
+        Log.d("SUPPLIER REPOSITORY", (suppliers ?: "Empty List").toString())
+        return suppliers
+    }
+    suspend fun attemptGetSupplierById(id: Int): SupplierResponse? {
+        return supplierApiService.getSupplierById(id)
+    }
+    suspend fun attemptDeleteSupplier(id: Int) {
+        supplierApiService.deleteSupplier(id)
+    }
+    suspend fun attemptReactivateSupplier(id: Int) {
+        supplierApiService.reactivateSupplier(id)
+    }
+    suspend fun attemptInactivateSupplier(id: Int) {
+        supplierApiService.inactivateSupplier(id)
     }
 }

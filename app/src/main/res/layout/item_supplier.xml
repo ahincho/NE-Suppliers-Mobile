@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="10dp"
+    app:cardCornerRadius="15dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp">
+        <ImageView
+            android:id="@+id/itemSupplierImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/supplier_image"
+            android:src="@drawable/supplier"
+            app:layout_constraintBottom_toTopOf="@id/itemSupplierButtons"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
+        <TextView
+            android:id="@+id/itemSupplierName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/itemSupplierImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/itemSupplierHolders"
+            tools:text="Supplier Name"/>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/itemSupplierHolders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintStart_toEndOf="@id/itemSupplierImage"
+            app:layout_constraintEnd_toStartOf="@id/itemSupplierValues"
+            app:layout_constraintTop_toBottomOf="@id/itemSupplierName"
+            app:layout_constraintBottom_toTopOf="@id/itemSupplierButtons">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/ruc" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/category" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/country" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/state" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/itemSupplierValues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintStart_toEndOf="@id/itemSupplierHolders"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemSupplierName"
+            app:layout_constraintBottom_toTopOf="@id/itemSupplierButtons">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/itemSupplierRuc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="RUC Number" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/itemSupplierCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Category Name" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/itemSupplierCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Country Name" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/itemSupplierState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="State Name"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/itemSupplierButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemSupplierImage"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <Button
+                android:id="@+id/btnReactivate"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/green"
+                android:textStyle="bold"
+                android:text="@string/reactivate"/>
+            <Button
+                android:id="@+id/btnInactivate"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/gold"
+                android:textStyle="bold"
+                android:text="@string/inactivate"/>
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
+                android:textStyle="bold"
+                android:text="@string/delete"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
