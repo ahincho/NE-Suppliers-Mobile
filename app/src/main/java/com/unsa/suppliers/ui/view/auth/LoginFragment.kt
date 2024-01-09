@@ -30,7 +30,7 @@ class LoginFragment : Fragment() {
         authViewModel = ViewModelProvider(authActivity)[AuthViewModel::class.java]
         initListeners()
         authViewModel.token.observe(viewLifecycleOwner) {
-            Toast.makeText(context, "JWT: ${authViewModel.token.value}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Successful Login", Toast.LENGTH_SHORT).show()
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
             (activity as AuthActivity).finish()
