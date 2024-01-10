@@ -1,7 +1,6 @@
 package com.unsa.suppliers.ui.view.main
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +26,7 @@ class SupplierFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val mainActivity = activity as MainActivity
         mainViewModel = ViewModelProvider(mainActivity)[MainViewModel::class.java]
+        initListeners()
         mainViewModel.getAllSuppliers()
         mainViewModel.suppliers.observe(viewLifecycleOwner) {
             initRecyclerView(mainViewModel.suppliers.value ?: emptyList())
@@ -41,5 +41,11 @@ class SupplierFragment : Fragment() {
         adapter = SupplierAdapter(suppliers)
         binding.suppliersRecyclerView.layoutManager = manager
         binding.suppliersRecyclerView.adapter = adapter
+    }
+    private fun initListeners() {
+        binding.supplierBtnAdd.setOnClickListener {
+            val dialog = SupplierAddDialog()
+            dialog.show(childFragmentManager, "Supplier Add Dialog")
+        }
     }
 }

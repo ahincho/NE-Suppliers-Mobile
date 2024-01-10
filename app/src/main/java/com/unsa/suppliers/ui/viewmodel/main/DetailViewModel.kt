@@ -4,10 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.unsa.suppliers.data.dtos.main.suppliers.SupplierResponse
-import com.unsa.suppliers.domain.DeleteSupplierUseCase
-import com.unsa.suppliers.domain.DisableSupplierUseCase
-import com.unsa.suppliers.domain.EnableSupplierUseCase
-import com.unsa.suppliers.domain.GetSupplierByIdUseCase
+import com.unsa.suppliers.domain.main.suppliers.DeleteSupplierUseCase
+import com.unsa.suppliers.domain.main.suppliers.DisableSupplierUseCase
+import com.unsa.suppliers.domain.main.suppliers.EnableSupplierUseCase
+import com.unsa.suppliers.domain.main.suppliers.GetSupplierByIdUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

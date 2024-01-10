@@ -4,12 +4,15 @@ import com.unsa.suppliers.core.Constants.Companion.API_REST_SERVICE
 import com.unsa.suppliers.data.network.interceptors.AuthInterceptor
 import com.unsa.suppliers.data.network.clients.SupplierApiClient
 import com.unsa.suppliers.data.network.clients.AuthApiClient
+import com.unsa.suppliers.data.network.clients.CategoryApiClient
+import com.unsa.suppliers.data.network.clients.CountryApiClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.Retrofit.Builder
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
@@ -37,5 +40,15 @@ object NetworkModule {
     @Provides
     fun provideSupplierApiClient(retrofit: Retrofit.Builder, okHttpClient: OkHttpClient): SupplierApiClient {
         return retrofit.client(okHttpClient).build().create(SupplierApiClient::class.java)
+    }
+    @Singleton
+    @Provides
+    fun provideCategoryApiClient(retrofit: Retrofit.Builder, okHttpClient: OkHttpClient): CategoryApiClient {
+        return retrofit.client(okHttpClient).build().create(CategoryApiClient::class.java)
+    }
+    @Singleton
+    @Provides
+    fun provideCountryApiClient(retrofit: Retrofit.Builder, okHttpClient: OkHttpClient): CountryApiClient {
+        return retrofit.client(okHttpClient).build().create(CountryApiClient::class.java)
     }
 }

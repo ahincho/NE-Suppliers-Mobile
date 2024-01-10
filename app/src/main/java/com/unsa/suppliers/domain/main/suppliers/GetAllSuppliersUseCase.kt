@@ -1,4 +1,4 @@
-package com.unsa.suppliers.domain
+package com.unsa.suppliers.domain.main.suppliers
 
 import android.util.Log
 import com.unsa.suppliers.data.SupplierRepository

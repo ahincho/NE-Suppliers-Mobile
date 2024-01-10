@@ -1,4 +1,4 @@
-package com.unsa.suppliers.domain.main
+package com.unsa.suppliers.domain.main.suppliers
 
 import com.unsa.suppliers.data.SupplierRepository
 import com.unsa.suppliers.data.dtos.main.suppliers.SupplierRequest
