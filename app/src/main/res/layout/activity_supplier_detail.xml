@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="10dp"
+    app:cardCornerRadius="15dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp">
+        <ImageView
+            android:id="@+id/detailSupplierImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/supplier_image"
+            android:src="@drawable/supplier"
+            app:layout_constraintBottom_toTopOf="@id/detailSupplierButtons"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
+        <TextView
+            android:id="@+id/detailSupplierName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/detailSupplierImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/detailSupplierHolders"
+            tools:text="Supplier Name"/>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/detailSupplierHolders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintStart_toEndOf="@id/detailSupplierImage"
+            app:layout_constraintEnd_toStartOf="@id/detailSupplierValues"
+            app:layout_constraintTop_toBottomOf="@id/detailSupplierName"
+            app:layout_constraintBottom_toTopOf="@id/detailSupplierButtons">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/ruc" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/category" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/country" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/state" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/detailSupplierValues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintStart_toEndOf="@id/detailSupplierHolders"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detailSupplierName"
+            app:layout_constraintBottom_toTopOf="@id/detailSupplierButtons">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/detailSupplierRuc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="RUC Number" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/detailSupplierCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Category Name" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/detailSupplierCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Country Name" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/detailSupplierState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="State Name"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/detailSupplierButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detailSupplierImage"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <Button
+                android:id="@+id/btnEnable"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/green"
+                android:textStyle="bold"
+                android:text="@string/enable"
+                tools:ignore="VisualLintButtonSize" />
+
+            <Button
+                android:id="@+id/btnDisable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/gold"
+                android:text="@string/disable"
+                android:textStyle="bold"
+                tools:ignore="VisualLintButtonSize" />
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
+                android:textStyle="bold"
+                android:text="@string/delete"
+                tools:ignore="VisualLintButtonSize" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

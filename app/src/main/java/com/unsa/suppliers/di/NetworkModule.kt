@@ -1,9 +1,9 @@
 package com.unsa.suppliers.di
 
-import com.unsa.suppliers.core.Constants
-import com.unsa.suppliers.data.network.AuthInterceptor
-import com.unsa.suppliers.data.network.SupplierApiClient
-import com.unsa.suppliers.data.network.SupplierAuthClient
+import com.unsa.suppliers.core.Constants.Companion.API_REST_SERVICE
+import com.unsa.suppliers.data.network.interceptors.AuthInterceptor
+import com.unsa.suppliers.data.network.clients.SupplierApiClient
+import com.unsa.suppliers.data.network.clients.AuthApiClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,7 +20,7 @@ object NetworkModule {
     @Provides
     fun provideRetrofitBuilder(): Retrofit.Builder {
         return Retrofit.Builder()
-            .baseUrl(Constants.SUPPLIER_API_REST_URL)
+            .baseUrl(API_REST_SERVICE)
             .addConverterFactory(GsonConverterFactory.create())
     }
     @Singleton
@@ -30,8 +30,8 @@ object NetworkModule {
     }
     @Singleton
     @Provides
-    fun provideSupplierAuthClient(retrofitBuilder: Retrofit.Builder): SupplierAuthClient {
-        return retrofitBuilder.build().create(SupplierAuthClient::class.java)
+    fun provideSupplierAuthClient(retrofitBuilder: Retrofit.Builder): AuthApiClient {
+        return retrofitBuilder.build().create(AuthApiClient::class.java)
     }
     @Singleton
     @Provides

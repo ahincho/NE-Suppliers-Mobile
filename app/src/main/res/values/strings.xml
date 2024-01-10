@@ -28,6 +28,12 @@
     <string name="country">Country</string>
     <string name="state">State</string>
     <string name="delete">Delete</string>
-    <string name="reactivate">Reactivate</string>
-    <string name="inactivate">Inactivate</string>
+    <string name="enable">Enable</string>
+    <string name="disable">Disable</string>
+    <string name="id">Id</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="create_supplier">Create Supplier Record</string>
+    <string name="supplier_name">Supplier Name</string>
+    <string name="supplier_ruc">Supplier Ruc</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.unsa.suppliers.domain
+package com.unsa.suppliers.domain.auth
 
 import com.unsa.suppliers.data.SupplierRepository
 import com.unsa.suppliers.data.dtos.auth.LoginRequest

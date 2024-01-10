@@ -5,37 +5,34 @@ import com.unsa.suppliers.data.dtos.auth.LoginRequest
 import com.unsa.suppliers.data.dtos.auth.LoginResponse
 import com.unsa.suppliers.data.dtos.auth.UserRequest
 import com.unsa.suppliers.data.dtos.auth.UserResponse
-import com.unsa.suppliers.data.dtos.suppliers.SupplierResponse
-import com.unsa.suppliers.data.network.SupplierApiClient
-import com.unsa.suppliers.data.network.SupplierApiService
-import com.unsa.suppliers.data.network.SupplierAuthService
+import com.unsa.suppliers.data.dtos.main.suppliers.SupplierResponse
+import com.unsa.suppliers.data.network.services.SupplierService
+import com.unsa.suppliers.data.network.services.AuthService
 import javax.inject.Inject
 
 class SupplierRepository @Inject constructor (
-    private val supplierAuthService: SupplierAuthService,
-    private val supplierApiService: SupplierApiService
+    private val authService: AuthService,
+    private val supplierService: SupplierService
 ) {
     suspend fun attemptLogin(loginRequest: LoginRequest): LoginResponse? {
-        return supplierAuthService.login(loginRequest)
+        return authService.login(loginRequest)
     }
     suspend fun attemptRegister(userRequest: UserRequest): UserResponse? {
-        return supplierAuthService.register(userRequest)
+        return authService.register(userRequest)
     }
     suspend fun attemptGetSuppliers(): MutableList<SupplierResponse>? {
-        val suppliers = supplierApiService.getSuppliers()
-        Log.d("SUPPLIER REPOSITORY", (suppliers ?: "Empty List").toString())
-        return suppliers
+        return supplierService.getSuppliers()
     }
     suspend fun attemptGetSupplierById(id: Int): SupplierResponse? {
-        return supplierApiService.getSupplierById(id)
+        return supplierService.getSupplierById(id)
     }
     suspend fun attemptDeleteSupplier(id: Int) {
-        supplierApiService.deleteSupplier(id)
+        supplierService.deleteSupplier(id)
     }
-    suspend fun attemptReactivateSupplier(id: Int) {
-        supplierApiService.reactivateSupplier(id)
+    suspend fun attemptEnableSupplier(id: Int) {
+        supplierService.enableSupplier(id)
     }
-    suspend fun attemptInactivateSupplier(id: Int) {
-        supplierApiService.inactivateSupplier(id)
+    suspend fun attemptDisableSupplier(id: Int) {
+        supplierService.disableSupplier(id)
     }
 }
