@@ -19,6 +19,10 @@
     <string name="email_required">Email is required</string>
     <string name="category_name_required">Category name is required</string>
     <string name="country_name_required">Country name is required</string>
+    <string name="supplier_name_required">Supplier name is required</string>
+    <string name="supplier_ruc_required">Supplier ruc is required</string>
+    <string name="category_required_error">Please select a category</string>
+    <string name="country_required_error">Please select a country</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="suppliers">Suppliers</string>
@@ -44,4 +48,6 @@
     <string name="country_name">Country Name</string>
     <string name="category_image">Category Image</string>
     <string name="country_image">Country Image</string>
+    <string name="supplier_category">Supplier Category</string>
+    <string name="supplier_country">Supplier Country</string>
 </resources>

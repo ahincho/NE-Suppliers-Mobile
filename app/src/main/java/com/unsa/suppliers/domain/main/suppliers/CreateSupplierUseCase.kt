@@ -8,6 +8,6 @@ class CreateSupplierUseCase @Inject constructor (
     private val supplierRepository: SupplierRepository
 ) {
     suspend operator fun invoke(supplierRequest: SupplierRequest) {
-
+        supplierRepository.attemptCreateSupplier(supplierRequest)
     }
 }
