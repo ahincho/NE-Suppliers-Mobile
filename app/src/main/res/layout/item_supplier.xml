@@ -1,40 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/supplierCardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="10dp"
+    android:layout_marginVertical="5dp"
     android:layout_marginHorizontal="10dp"
-    android:stretchColumns="*">
-    <TableRow
-        android:id="@+id/supplierRow"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        tools:ignore="UselessParent">
+    app:cardCornerRadius="20dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/itemSupplierImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/supplier"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
         <TextView
             android:id="@+id/itemSupplierId"
-            android:textAlignment="center"
-            android:textSize="14sp"
-            android:padding="10dp"
-            tools:text="ID"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="123" />
+        <TextView
+            android:id="@+id/itemSupplierState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/itemSupplierImage"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="State" />
         <TextView
             android:id="@+id/itemSupplierName"
-            android:textAlignment="center"
-            android:textSize="14sp"
-            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/itemSupplierImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/itemSupplierRuc"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:text="Supplier Name"/>
         <TextView
             android:id="@+id/itemSupplierRuc"
-            android:textAlignment="center"
-            android:textSize="14sp"
-            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/itemSupplierImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/itemSupplierName"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:text="Supplier RUC"/>
-        <TextView
-            android:id="@+id/itemSupplierState"
-            android:textAlignment="center"
-            android:textSize="14sp"
-            android:padding="10dp"
-            tools:text="Supplier State"/>
-    </TableRow>
-</TableLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

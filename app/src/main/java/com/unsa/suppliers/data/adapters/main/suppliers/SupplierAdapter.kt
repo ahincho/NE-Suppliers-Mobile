@@ -3,8 +3,7 @@ package com.unsa.suppliers.data.adapters.main.suppliers
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TableLayout
-import android.widget.TableRow
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.unsa.suppliers.R
 import com.unsa.suppliers.data.dtos.main.suppliers.SupplierResponse
@@ -23,7 +22,7 @@ class SupplierAdapter (private var suppliers: List<SupplierResponse>) : Recycler
     }
     override fun onBindViewHolder(holder: SupplierViewHolder, position: Int) {
         val supplierResponse = suppliers[position]
-        holder.itemView.findViewById<TableRow>(R.id.supplierRow).setOnClickListener {
+        holder.itemView.findViewById<CardView>(R.id.supplierCardView).setOnClickListener {
             val intent = Intent(it.context, SupplierDetailActivity::class.java)
             intent.putExtra(SUPPLIER_ID, suppliers[position].id)
             it.context.startActivity(intent)
