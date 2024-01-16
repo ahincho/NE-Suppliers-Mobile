@@ -1,4 +1,4 @@
-package com.unsa.suppliers.ui.view.main
+package com.unsa.suppliers.ui.view.main.suppliers
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.unsa.suppliers.data.adapters.main.suppliers.SupplierAdapter
 import com.unsa.suppliers.data.dtos.main.suppliers.SupplierResponse
 import com.unsa.suppliers.databinding.FragmentSupplierBinding
+import com.unsa.suppliers.ui.view.main.MainActivity
 import com.unsa.suppliers.ui.viewmodel.main.MainViewModel
 
 class SupplierFragment : Fragment() {
@@ -26,13 +27,11 @@ class SupplierFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val mainActivity = activity as MainActivity
         mainViewModel = ViewModelProvider(mainActivity)[MainViewModel::class.java]
-        initListeners()
-        mainViewModel.getAllSuppliers()
         mainViewModel.suppliers.observe(viewLifecycleOwner) {
             initRecyclerView(mainViewModel.suppliers.value ?: emptyList())
         }
+        initListeners()
     }
-
     override fun onResume() {
         super.onResume()
         mainViewModel.getAllSuppliers()

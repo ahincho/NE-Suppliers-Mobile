@@ -16,7 +16,13 @@
         android:theme="@style/Theme.Suppliers"
         tools:targetApi="31">
         <activity
-            android:name=".ui.view.main.SupplierDetailActivity"
+            android:name=".ui.view.main.countries.CountryDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.main.categories.CategoryDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.main.suppliers.SupplierDetailActivity"
             android:exported="false" />
         <activity
             android:name=".ui.view.splash.SplashActivity"

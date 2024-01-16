@@ -28,7 +28,8 @@
             android:id="@+id/registerTilName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/sky_blue">
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black" >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/registerEtName"
                 android:layout_width="match_parent"
@@ -40,7 +41,8 @@
             android:id="@+id/registerTilLastname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/sky_blue">
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black" >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/registerEtLastname"
                 android:layout_width="match_parent"
@@ -52,7 +54,8 @@
             android:id="@+id/registerTilUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/sky_blue">
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black" >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/registerEtUsername"
                 android:layout_width="match_parent"
@@ -64,7 +67,8 @@
             android:id="@+id/registerTilEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/sky_blue">
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black" >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/registerEtEmail"
                 android:layout_width="match_parent"
@@ -76,7 +80,8 @@
             android:id="@+id/registerTilPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/sky_blue">
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black" >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/registerEtPassword"
                 android:layout_width="match_parent"

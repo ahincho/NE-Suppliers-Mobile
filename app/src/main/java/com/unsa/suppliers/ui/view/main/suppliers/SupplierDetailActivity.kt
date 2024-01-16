@@ -1,4 +1,4 @@
-package com.unsa.suppliers.ui.view.main
+package com.unsa.suppliers.ui.view.main.suppliers
 
 import android.os.Bundle
 import androidx.activity.viewModels

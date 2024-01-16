@@ -1,6 +1,5 @@
 package com.unsa.suppliers.domain.main.suppliers
 
-import android.util.Log
 import com.unsa.suppliers.data.SupplierRepository
 import com.unsa.suppliers.data.dtos.main.suppliers.SupplierResponse
 import javax.inject.Inject

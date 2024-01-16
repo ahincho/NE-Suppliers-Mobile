@@ -10,7 +10,7 @@
         android:id="@+id/tvCreateHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/create_supplier"
+        android:text="@string/create_country"
         android:textAlignment="center"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
     <LinearLayout
-        android:id="@+id/createSupplierForm"
+        android:id="@+id/createCountryForm"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -29,44 +29,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCreateHeader">
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/createCountryHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/sky_blue">
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/createSupplierName"
+                android:id="@+id/createCountryName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/supplier_name"
+                android:hint="@string/country_name"
                 android:inputType="text"
                 tools:ignore="VisualLintTextFieldSize" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/sky_blue">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/createSupplierRuc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/supplier_ruc"
-                android:inputType="text"
-                tools:ignore="VisualLintTextFieldSize" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-            <AutoCompleteTextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-            <AutoCompleteTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <Button
@@ -78,9 +52,9 @@
         android:backgroundTint="@color/red"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/createSupplierForm"
+        app:layout_constraintTop_toBottomOf="@id/createCountryForm"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/createSupplierForm"
+        app:layout_constraintStart_toStartOf="@id/createCountryForm"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="25dp"/>
     <Button
@@ -92,9 +66,9 @@
         android:backgroundTint="@color/blue"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/createSupplierForm"
+        app:layout_constraintTop_toBottomOf="@id/createCountryForm"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/createSupplierForm"
+        app:layout_constraintEnd_toEndOf="@id/createCountryForm"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="25dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

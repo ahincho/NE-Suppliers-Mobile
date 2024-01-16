@@ -1,0 +1,14 @@
+package com.unsa.suppliers.ui.view.main.countries
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.unsa.suppliers.R
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class CountryDetailActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_country_detail)
+    }
+}

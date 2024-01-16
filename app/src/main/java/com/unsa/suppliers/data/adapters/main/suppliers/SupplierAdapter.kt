@@ -7,7 +7,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.unsa.suppliers.R
 import com.unsa.suppliers.data.dtos.main.suppliers.SupplierResponse
-import com.unsa.suppliers.ui.view.main.SupplierDetailActivity
+import com.unsa.suppliers.ui.view.main.suppliers.SupplierDetailActivity
 
 class SupplierAdapter (private var suppliers: List<SupplierResponse>) : RecyclerView.Adapter<SupplierViewHolder>() {
     companion object {
