@@ -52,14 +52,38 @@ class SupplierRepository @Inject constructor (
     suspend fun attemptGetCategories(): MutableList<CategoryResponse>? {
         return categoryService.getAllCategories()
     }
+    suspend fun attemptGetCategoryById(id: Int): CategoryResponse? {
+        return categoryService.getCategoryById(id)
+    }
     suspend fun attemptCreateCategory(categoryRequest: CategoryRequest): CategoryResponse? {
         return categoryService.createCategory(categoryRequest)
+    }
+    suspend fun attemptDeleteCategory(id: Int) {
+        categoryService.deleteCategory(id)
+    }
+    suspend fun attemptEnableCategory(id: Int) {
+        categoryService.enableCategory(id)
+    }
+    suspend fun attemptDisableCategory(id: Int) {
+        categoryService.disableCategory(id)
     }
     // Countries Actions
     suspend fun attemptGetCountries(): MutableList<CountryResponse>? {
         return countryService.getAllCountries()
     }
+    suspend fun attemptGetCountryById(id: Int): CountryResponse? {
+        return countryService.getCountryById(id)
+    }
     suspend fun attemptCreateCountry(countryRequest: CountryRequest): CountryResponse? {
         return countryService.createCountry(countryRequest)
+    }
+    suspend fun attemptDeleteCountry(id: Int) {
+        countryService.deleteCountry(id)
+    }
+    suspend fun attemptEnableCountry(id: Int) {
+        countryService.enableCountry(id)
+    }
+    suspend fun attemptDisableCountry(id: Int) {
+        countryService.disableCountry(id)
     }
 }

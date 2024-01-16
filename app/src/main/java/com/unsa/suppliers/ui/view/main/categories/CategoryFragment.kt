@@ -34,7 +34,7 @@ class CategoryFragment : Fragment() {
     }
     override fun onResume() {
         super.onResume()
-        mainViewModel.getAllSuppliers()
+        mainViewModel.getAllCategories()
     }
     private fun initRecyclerView(categories: List<CategoryResponse>) {
         adapter = CategoryAdapter(categories)

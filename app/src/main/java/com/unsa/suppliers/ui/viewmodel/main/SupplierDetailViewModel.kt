@@ -13,11 +13,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailViewModel @Inject constructor (
+class SupplierDetailViewModel @Inject constructor (
     private val getSupplierByIdUseCase: GetSupplierByIdUseCase,
     private val deleteSupplierUseCase: DeleteSupplierUseCase,
     private val disableSupplierUseCase: DisableSupplierUseCase,
-    private val enableSupplierUseCase: EnableSupplierUseCase
+    private val enableSupplierUseCase: EnableSupplierUseCase,
 ) : ViewModel() {
     var supplier = MutableLiveData<SupplierResponse>()
     fun getSupplierById(id: Int) {

@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.unsa.suppliers.R
+import com.unsa.suppliers.data.dtos.auth.UserRequest
 import com.unsa.suppliers.data.model.UserModel
 import com.unsa.suppliers.data.model.UserProvider
 import com.unsa.suppliers.databinding.FragmentRegisterBinding
@@ -42,14 +43,12 @@ class RegisterFragment : Fragment() {
     }
     private fun saveUser() {
         if (checkRegisterForm()) {
-            val user = UserModel (
-                recoverTextInput(binding.registerEtName),
-                recoverTextInput(binding.registerEtLastname),
-                recoverTextInput(binding.registerEtUsername),
-                recoverTextInput(binding.registerEtEmail),
-                recoverTextInput(binding.registerEtPassword)
-            )
-            UserProvider.add(user)
+            val name = recoverTextInput(binding.registerEtName)
+            val lastname = recoverTextInput(binding.registerEtLastname)
+            val username = recoverTextInput(binding.registerEtUsername)
+            val email = recoverTextInput(binding.registerEtEmail)
+            val password = recoverTextInput(binding.registerEtPassword)
+            authViewModel.register(UserRequest(name, lastname, username, email, password))
             Toast.makeText(context, "Registration was successful", Toast.LENGTH_SHORT).show()
         }
     }

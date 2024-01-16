@@ -42,4 +42,6 @@
     <string name="category_name">Category Name</string>
     <string name="create_country">Create Country Record</string>
     <string name="country_name">Country Name</string>
+    <string name="category_image">Category Image</string>
+    <string name="country_image">Country Image</string>
 </resources>

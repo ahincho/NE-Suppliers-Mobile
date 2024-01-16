@@ -34,7 +34,7 @@ class CountryFragment : Fragment() {
     }
     override fun onResume() {
         super.onResume()
-        mainViewModel.getAllSuppliers()
+        mainViewModel.getAllCountries()
     }
     private fun initRecyclerView(countries: List<CountryResponse>) {
         adapter = CountryAdapter(countries)

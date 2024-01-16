@@ -1,9 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.view.main.countries.CountryDetailActivity">
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="10dp"
+    app:cardCornerRadius="15dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp">
+        <ImageView
+            android:id="@+id/detailCountryImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/country_image"
+            android:src="@drawable/country"
+            app:layout_constraintBottom_toTopOf="@id/detailCountryButtons"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
+        <TextView
+            android:id="@+id/detailCountryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/detailCountryImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/detailCountryHolders"
+            tools:text="Country Name"/>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/detailCountryHolders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintStart_toEndOf="@id/detailCountryImage"
+            app:layout_constraintEnd_toStartOf="@id/detailCountryValues"
+            app:layout_constraintTop_toBottomOf="@id/detailCountryName"
+            app:layout_constraintBottom_toTopOf="@id/detailCountryButtons">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/state" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/detailCountryValues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginVertical="10dp"
+            app:layout_constraintStart_toEndOf="@id/detailCountryHolders"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detailCountryName"
+            app:layout_constraintBottom_toTopOf="@id/detailCountryButtons">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/detailCountryState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="State Name"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/detailCountryButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detailCountryImage"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <Button
+                android:id="@+id/btnEnable"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/green"
+                android:textStyle="bold"
+                android:text="@string/enable"
+                tools:ignore="VisualLintButtonSize" />
+            <Button
+                android:id="@+id/btnDisable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/gold"
+                android:text="@string/disable"
+                android:textStyle="bold"
+                tools:ignore="VisualLintButtonSize" />
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
+                android:textStyle="bold"
+                android:text="@string/delete"
+                tools:ignore="VisualLintButtonSize" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
