@@ -1,5 +1,6 @@
 package com.unsa.suppliers.data.adapters.main.countries
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -30,5 +31,10 @@ class CountryAdapter (
             it.context.startActivity(intent)
         }
         holder.renderCountry(countryResponse)
+    }
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateCountries(countries: List<CountryResponse>?) {
+        this.countries = countries ?: emptyList()
+        notifyDataSetChanged()
     }
 }

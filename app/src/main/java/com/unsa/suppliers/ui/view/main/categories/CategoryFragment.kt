@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.unsa.suppliers.data.adapters.main.categories.CategoryAdapter
@@ -40,6 +41,19 @@ class CategoryFragment : Fragment() {
         adapter = CategoryAdapter(categories)
         binding.categoriesRecyclerView.layoutManager = manager
         binding.categoriesRecyclerView.adapter = adapter
+        binding.categorySearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val filteredCategories = mainViewModel.categories.value?.filter {
+                        category -> category.name.contains(newText.orEmpty(), ignoreCase = true)
+                }
+                adapter.updateCategories(filteredCategories)
+                return true
+            }
+        })
     }
     private fun initListeners() {
         binding.categoryBtnAdd.setOnClickListener {

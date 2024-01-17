@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,6 +41,19 @@ class CountryFragment : Fragment() {
         adapter = CountryAdapter(countries)
         binding.countriesRecyclerView.layoutManager = manager
         binding.countriesRecyclerView.adapter = adapter
+        binding.countrySearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val filteredCountries = mainViewModel.countries.value?.filter {
+                        country -> country.name.contains(newText.orEmpty(), ignoreCase = true)
+                }
+                adapter.updateCountries(filteredCountries)
+                return true
+            }
+        })
     }
     private fun initListeners() {
         binding.countryBtnAdd.setOnClickListener {
