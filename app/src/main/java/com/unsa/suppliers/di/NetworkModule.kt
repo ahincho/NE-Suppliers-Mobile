@@ -2,17 +2,13 @@ package com.unsa.suppliers.di
 
 import com.unsa.suppliers.core.Constants.Companion.API_REST_SERVICE
 import com.unsa.suppliers.data.network.interceptors.AuthInterceptor
-import com.unsa.suppliers.data.network.clients.SupplierApiClient
-import com.unsa.suppliers.data.network.clients.AuthApiClient
-import com.unsa.suppliers.data.network.clients.CategoryApiClient
-import com.unsa.suppliers.data.network.clients.CountryApiClient
+import com.unsa.suppliers.data.network.clients.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.Retrofit.Builder
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
