@@ -1,6 +1,6 @@
 package com.unsa.suppliers.domain.auth
 
-import com.unsa.suppliers.data.PreferencesRepository
+import com.unsa.suppliers.data.repositories.PreferencesRepository
 import javax.inject.Inject
 
 class SaveJwtTokenUseCase @Inject constructor (

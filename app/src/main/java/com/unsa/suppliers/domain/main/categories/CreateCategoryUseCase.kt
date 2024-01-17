@@ -1,14 +1,14 @@
 package com.unsa.suppliers.domain.main.categories
 
-import com.unsa.suppliers.data.SupplierRepository
 import com.unsa.suppliers.data.dtos.main.categories.CategoryRequest
 import com.unsa.suppliers.data.dtos.main.categories.CategoryResponse
+import com.unsa.suppliers.data.repositories.CategoryRepository
 import javax.inject.Inject
 
 class CreateCategoryUseCase @Inject constructor (
-    private val supplierRepository: SupplierRepository
+    private val categoryRepository: CategoryRepository
 ) {
     suspend operator fun invoke(categoryRequest: CategoryRequest): CategoryResponse? {
-        return supplierRepository.attemptCreateCategory(categoryRequest)
+        return categoryRepository.attemptCreateCategory(categoryRequest)
     }
 }
