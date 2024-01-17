@@ -9,7 +9,9 @@ import com.unsa.suppliers.R
 import com.unsa.suppliers.data.dtos.main.countries.CountryResponse
 import com.unsa.suppliers.ui.view.main.countries.CountryDetailActivity
 
-class CountryAdapter (private var countries: List<CountryResponse>) : RecyclerView.Adapter<CountryViewHolder>() {
+class CountryAdapter (
+    private var countries: List<CountryResponse>
+): RecyclerView.Adapter<CountryViewHolder>() {
     companion object {
         const val COUNTRY_ID = "COUNTRY_ID"
     }

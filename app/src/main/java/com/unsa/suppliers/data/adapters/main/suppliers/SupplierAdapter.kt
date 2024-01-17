@@ -9,7 +9,9 @@ import com.unsa.suppliers.R
 import com.unsa.suppliers.data.dtos.main.suppliers.SupplierResponse
 import com.unsa.suppliers.ui.view.main.suppliers.SupplierDetailActivity
 
-class SupplierAdapter (private var suppliers: List<SupplierResponse>) : RecyclerView.Adapter<SupplierViewHolder>() {
+class SupplierAdapter (
+    private var suppliers: List<SupplierResponse>
+): RecyclerView.Adapter<SupplierViewHolder>() {
     companion object {
         const val SUPPLIER_ID = "SUPPLIER_ID"
     }

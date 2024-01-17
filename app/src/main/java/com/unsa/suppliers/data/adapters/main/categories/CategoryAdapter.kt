@@ -9,7 +9,9 @@ import com.unsa.suppliers.R
 import com.unsa.suppliers.data.dtos.main.categories.CategoryResponse
 import com.unsa.suppliers.ui.view.main.categories.CategoryDetailActivity
 
-class CategoryAdapter (private var categories: List<CategoryResponse>) : RecyclerView.Adapter<CategoryViewHolder>() {
+class CategoryAdapter (
+    private var categories: List<CategoryResponse>
+): RecyclerView.Adapter<CategoryViewHolder>() {
     companion object {
         const val CATEGORY_ID = "CATEGORY_ID"
     }
