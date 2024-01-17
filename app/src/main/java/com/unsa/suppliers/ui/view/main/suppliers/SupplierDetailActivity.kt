@@ -31,6 +31,7 @@ class SupplierDetailActivity : AppCompatActivity() {
         binding = ActivitySupplierDetailBinding.inflate(layoutInflater)
         supplierId = intent?.getIntExtra(SUPPLIER_ID, -1) ?: -1
         setContentView(binding.root)
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         supplierDetailViewModel.getSupplierById(supplierId)
         supplierDetailViewModel.getAllCategories()
         supplierDetailViewModel.getAllCountries()
@@ -61,9 +62,7 @@ class SupplierDetailActivity : AppCompatActivity() {
         }
         builder.show()
     }
-
     private fun initUserInterface() {
-        this.onBackPressedDispatcher.addCallback(this,onBackPressedCallback)
         val stateAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, resources.getStringArray(R.array.states))
         binding.dropStates.setAdapter(stateAdapter)
     }

@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.text.Editable
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.unsa.suppliers.R
 import com.unsa.suppliers.core.Constants
@@ -30,12 +32,34 @@ class CategoryDetailActivity : AppCompatActivity() {
         initUserInterface()
         initListeners()
     }
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (checkStateWasEdited() || checkCategoryWasEdited()) {
+                showExitConfirmationDialog()
+            } else {
+                finish()
+            }
+        }
+    }
+    fun showExitConfirmationDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Unsaved Changes")
+        builder.setMessage("Are you sure you want to exit without saving changes?")
+        builder.setPositiveButton("Yes") { _, _ ->
+            finish()
+        }
+        builder.setNegativeButton("No") { dialog, _ ->
+            dialog.dismiss()
+        }
+        builder.show()
+    }
     private fun initUserInterface() {
         val states = resources.getStringArray(R.array.states)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, states)
         binding.dropStates.setAdapter(adapter)
     }
     private fun initListeners() {
+        this.onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
         binding.dropStates.setOnClickListener {
             binding.dropStates.text.clear()
         }
@@ -65,7 +89,7 @@ class CategoryDetailActivity : AppCompatActivity() {
         return isNotEmpty && isEdited
     }
     private fun checkCategoryWasEdited(): Boolean {
-        return !binding.detailCategoryName.text.toString().equals(categoryDetailViewModel.category.value.toString(), true)
+        return !binding.detailCategoryName.text.toString().equals(categoryDetailViewModel.category.value?.name, true)
     }
     private fun loadCategoryInfo() {
         binding.detailCategoryName.text = Editable.Factory.getInstance().newEditable(categoryDetailViewModel.category.value!!.name)
