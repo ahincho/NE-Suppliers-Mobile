@@ -1,7 +1,6 @@
 package com.unsa.suppliers.data.network.interceptors
 
-import android.util.Log
-import com.unsa.suppliers.data.PreferencesRepository
+import com.unsa.suppliers.data.repositories.PreferencesRepository
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.Response

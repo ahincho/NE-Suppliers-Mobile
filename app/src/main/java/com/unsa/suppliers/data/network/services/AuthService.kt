@@ -1,9 +1,6 @@
 package com.unsa.suppliers.data.network.services
 
-import com.unsa.suppliers.data.dtos.auth.LoginRequest
-import com.unsa.suppliers.data.dtos.auth.LoginResponse
-import com.unsa.suppliers.data.dtos.auth.UserRequest
-import com.unsa.suppliers.data.dtos.auth.UserResponse
+import com.unsa.suppliers.data.dtos.auth.*
 import com.unsa.suppliers.data.network.clients.AuthApiClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

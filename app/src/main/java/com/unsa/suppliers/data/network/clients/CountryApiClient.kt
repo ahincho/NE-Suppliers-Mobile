@@ -1,8 +1,7 @@
 package com.unsa.suppliers.data.network.clients
 
 import com.unsa.suppliers.core.Constants.Companion.COUNTRY_ENDPOINT
-import com.unsa.suppliers.data.dtos.main.countries.CountryRequest
-import com.unsa.suppliers.data.dtos.main.countries.CountryResponse
+import com.unsa.suppliers.data.dtos.main.countries.*
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE

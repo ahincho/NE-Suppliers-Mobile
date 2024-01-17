@@ -28,7 +28,7 @@ class PreferencesRepository (private val context: Context) : DataStorePreference
     override suspend fun getJwtToken(): String {
         val jwt: String
         withContext(Dispatchers.IO) {
-            jwt = context.datastore.data.map { it[JWT] ?: "Nothing" }.first()
+            jwt = context.datastore.data.map { it[JWT] ?: "Nothing" } .first()
         }
         return jwt
     }

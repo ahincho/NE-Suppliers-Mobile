@@ -1,8 +1,7 @@
 package com.unsa.suppliers.data.network.clients
 
 import com.unsa.suppliers.core.Constants.Companion.SUPPLIER_ENDPOINT
-import com.unsa.suppliers.data.dtos.main.suppliers.SupplierRequest
-import com.unsa.suppliers.data.dtos.main.suppliers.SupplierResponse
+import com.unsa.suppliers.data.dtos.main.suppliers.*
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE

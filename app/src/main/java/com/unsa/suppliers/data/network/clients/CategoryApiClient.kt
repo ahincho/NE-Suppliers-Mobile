@@ -1,8 +1,7 @@
 package com.unsa.suppliers.data.network.clients
 
 import com.unsa.suppliers.core.Constants.Companion.CATEGORY_ENDPOINT
-import com.unsa.suppliers.data.dtos.main.categories.CategoryRequest
-import com.unsa.suppliers.data.dtos.main.categories.CategoryResponse
+import com.unsa.suppliers.data.dtos.main.categories.*
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE

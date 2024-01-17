@@ -1,10 +1,7 @@
 package com.unsa.suppliers.data.network.clients
 
 import com.unsa.suppliers.core.Constants.Companion.AUTH_ENDPOINT
-import com.unsa.suppliers.data.dtos.auth.LoginRequest
-import com.unsa.suppliers.data.dtos.auth.LoginResponse
-import com.unsa.suppliers.data.dtos.auth.UserRequest
-import com.unsa.suppliers.data.dtos.auth.UserResponse
+import com.unsa.suppliers.data.dtos.auth.*
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST

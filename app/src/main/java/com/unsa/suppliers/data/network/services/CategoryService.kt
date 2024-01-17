@@ -1,7 +1,6 @@
 package com.unsa.suppliers.data.network.services
 
-import com.unsa.suppliers.data.dtos.main.categories.CategoryRequest
-import com.unsa.suppliers.data.dtos.main.categories.CategoryResponse
+import com.unsa.suppliers.data.dtos.main.categories.*
 import com.unsa.suppliers.data.network.clients.CategoryApiClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
