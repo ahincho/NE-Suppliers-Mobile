@@ -28,7 +28,7 @@
             android:layout_marginBottom="5dp"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:text="@string/country"/>
+            android:text="@string/countries"/>
         <androidx.appcompat.widget.SearchView
             android:id="@+id/countrySearchView"
             android:layout_width="match_parent"

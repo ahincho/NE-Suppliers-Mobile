@@ -11,6 +11,6 @@ class SupplierViewHolder(view: View): RecyclerView.ViewHolder(view) {
         binding.itemSupplierId.text = supplierResponse.id.toString()
         binding.itemSupplierName.text = supplierResponse.name
         binding.itemSupplierRuc.text = supplierResponse.ruc
-        binding.itemSupplierState.text = supplierResponse.stateName
+        binding.itemSupplierState.text = supplierResponse.state
     }
 }

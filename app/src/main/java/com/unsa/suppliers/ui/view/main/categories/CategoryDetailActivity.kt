@@ -3,6 +3,7 @@ package com.unsa.suppliers.ui.view.main.categories
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.unsa.suppliers.core.Constants
 import com.unsa.suppliers.data.adapters.main.categories.CategoryAdapter
 import com.unsa.suppliers.databinding.ActivityCategoryDetailBinding
 import com.unsa.suppliers.ui.viewmodel.main.CategoryDetailViewModel
@@ -24,13 +25,19 @@ class CategoryDetailActivity : AppCompatActivity() {
     }
     private fun initListeners() {
         binding.btnDelete.setOnClickListener {
-            categoryDetailViewModel.deleteCategory(categoryId)
+            if (categoryDetailViewModel.category.value?.state != Constants.DELETED_STATE) {
+                categoryDetailViewModel.deleteCategory(categoryId)
+            }
         }
         binding.btnDisable.setOnClickListener {
-            categoryDetailViewModel.disableCategory(categoryId)
+            if (categoryDetailViewModel.category.value?.state != Constants.DISABLED_STATE) {
+                categoryDetailViewModel.disableCategory(categoryId)
+            }
         }
         binding.btnEnable.setOnClickListener {
-            categoryDetailViewModel.enableCategory(categoryId)
+            if (categoryDetailViewModel.category.value?.state != Constants.ACTIVE_STATE) {
+                categoryDetailViewModel.enableCategory(categoryId)
+            }
         }
     }
     private fun loadSupplierInfo() {

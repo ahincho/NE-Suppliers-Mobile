@@ -12,8 +12,6 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.unsa.suppliers.R
 import com.unsa.suppliers.data.dtos.auth.UserRequest
-import com.unsa.suppliers.data.model.UserModel
-import com.unsa.suppliers.data.model.UserProvider
 import com.unsa.suppliers.databinding.FragmentRegisterBinding
 import com.unsa.suppliers.ui.viewmodel.auth.AuthViewModel
 
@@ -21,7 +19,7 @@ class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
     private lateinit var authViewModel: AuthViewModel
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }

@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCreateHeader">
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/createCategoryHolder"
+            android:id="@+id/createCategoryNameHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/black"
@@ -44,7 +44,7 @@
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <Button
-        android:id="@+id/cancelButton"
+        android:id="@+id/btnCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -58,7 +58,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginBottom="25dp"/>
     <Button
-        android:id="@+id/submitButton"
+        android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

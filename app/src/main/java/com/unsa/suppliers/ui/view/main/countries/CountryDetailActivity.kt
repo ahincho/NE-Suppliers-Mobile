@@ -3,6 +3,7 @@ package com.unsa.suppliers.ui.view.main.countries
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.unsa.suppliers.core.Constants
 import com.unsa.suppliers.data.adapters.main.countries.CountryAdapter
 import com.unsa.suppliers.databinding.ActivityCountryDetailBinding
 import com.unsa.suppliers.ui.viewmodel.main.CountryDetailViewModel
@@ -24,13 +25,19 @@ class CountryDetailActivity : AppCompatActivity() {
     }
     private fun initListeners() {
         binding.btnDelete.setOnClickListener {
-            countryDetailViewModel.deleteCountry(countryId)
+            if (countryDetailViewModel.country.value?.state != Constants.DELETED_STATE) {
+                countryDetailViewModel.deleteCountry(countryId)
+            }
         }
         binding.btnDisable.setOnClickListener {
-            countryDetailViewModel.disableCountry(countryId)
+            if (countryDetailViewModel.country.value?.state != Constants.DISABLED_STATE) {
+                countryDetailViewModel.disableCountry(countryId)
+            }
         }
         binding.btnEnable.setOnClickListener {
-            countryDetailViewModel.enableCountry(countryId)
+            if (countryDetailViewModel.country.value?.state != Constants.ACTIVE_STATE) {
+                countryDetailViewModel.enableCountry(countryId)
+            }
         }
     }
     private fun loadSupplierInfo() {

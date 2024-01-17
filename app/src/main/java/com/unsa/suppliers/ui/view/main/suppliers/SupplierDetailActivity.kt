@@ -3,6 +3,7 @@ package com.unsa.suppliers.ui.view.main.suppliers
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.unsa.suppliers.core.Constants
 import com.unsa.suppliers.data.adapters.main.suppliers.SupplierAdapter.Companion.SUPPLIER_ID
 import com.unsa.suppliers.databinding.ActivitySupplierDetailBinding
 import com.unsa.suppliers.ui.viewmodel.main.SupplierDetailViewModel
@@ -24,20 +25,26 @@ class SupplierDetailActivity : AppCompatActivity() {
     }
     private fun initListeners() {
         binding.btnDelete.setOnClickListener {
-            supplierDetailViewModel.deleteSupplier(supplierId)
+            if (supplierDetailViewModel.supplier.value?.state != Constants.DELETED_STATE) {
+                supplierDetailViewModel.deleteSupplier(supplierId)
+            }
         }
         binding.btnDisable.setOnClickListener {
-            supplierDetailViewModel.disableSupplier(supplierId)
+            if (supplierDetailViewModel.supplier.value?.state != Constants.DISABLED_STATE) {
+                supplierDetailViewModel.disableSupplier(supplierId)
+            }
         }
         binding.btnEnable.setOnClickListener {
-            supplierDetailViewModel.enableSupplier(supplierId)
+            if (supplierDetailViewModel.supplier.value?.state != Constants.ACTIVE_STATE) {
+                supplierDetailViewModel.enableSupplier(supplierId)
+            }
         }
     }
     private fun loadSupplierInfo() {
         binding.detailSupplierName.text = supplierDetailViewModel.supplier.value!!.name
         binding.detailSupplierRuc.text = supplierDetailViewModel.supplier.value!!.ruc
-        binding.detailSupplierCategory.text = supplierDetailViewModel.supplier.value!!.categoryName
-        binding.detailSupplierCountry.text = supplierDetailViewModel.supplier.value!!.countryName
-        binding.detailSupplierState.text = supplierDetailViewModel.supplier.value!!.stateName
+        binding.detailSupplierCategory.text = supplierDetailViewModel.supplier.value!!.category
+        binding.detailSupplierCountry.text = supplierDetailViewModel.supplier.value!!.country
+        binding.detailSupplierState.text = supplierDetailViewModel.supplier.value!!.state
     }
 }
