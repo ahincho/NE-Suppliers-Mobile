@@ -1,4 +1,4 @@
-package com.unsa.suppliers.data
+package com.unsa.suppliers.data.repositories
 
 import android.content.Context
 import androidx.datastore.core.DataStore
