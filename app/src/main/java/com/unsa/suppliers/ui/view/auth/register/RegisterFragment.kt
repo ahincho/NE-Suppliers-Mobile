@@ -1,4 +1,4 @@
-package com.unsa.suppliers.ui.view.auth
+package com.unsa.suppliers.ui.view.auth.register
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,6 +13,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.unsa.suppliers.R
 import com.unsa.suppliers.data.dtos.auth.UserRequest
 import com.unsa.suppliers.databinding.FragmentRegisterBinding
+import com.unsa.suppliers.ui.view.auth.AuthActivity
 import com.unsa.suppliers.ui.viewmodel.auth.AuthViewModel
 
 class RegisterFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.unsa.suppliers.ui.view.auth
+package com.unsa.suppliers.ui.view.auth.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +13,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.unsa.suppliers.R
 import com.unsa.suppliers.databinding.FragmentLoginBinding
+import com.unsa.suppliers.ui.view.auth.AuthActivity
 import com.unsa.suppliers.ui.view.main.MainActivity
 import com.unsa.suppliers.ui.viewmodel.auth.AuthViewModel
 

@@ -16,6 +16,9 @@ import com.unsa.suppliers.ui.view.main.MainActivity
 import com.unsa.suppliers.ui.viewmodel.main.MainViewModel
 
 class SupplierAddDialog : DialogFragment() {
+    companion object {
+        const val RUC_LENGTH: Int = 11
+    }
     private lateinit var mainViewModel: MainViewModel
     private lateinit var binding: SupplierDialogBinding
     private var selectedCategoryId: Int = -1
@@ -65,12 +68,18 @@ class SupplierAddDialog : DialogFragment() {
     }
     private fun supplierInputIsValid(): Boolean {
         val isNameValid = checkTextInput(binding.createSupplierName, binding.createSupplierNameHolder, getString(R.string.supplier_name_required))
-        val isRucValid = checkTextInput(binding.createSupplierRuc, binding.createSupplierRucHolder, getString(R.string.supplier_ruc_required))
+        val isRucNotEmpty = checkTextInput(binding.createSupplierRuc, binding.createSupplierRucHolder, getString(R.string.supplier_ruc_required))
+        val isRucValid = checkTextLength(binding.createSupplierRuc, binding.createSupplierRucHolder, getString(R.string.supplier_ruc_too_short))
         val isCategorySelected = selectedCategoryId != -1
         val isCountrySelected = selectedCountryId != -1
         binding.dropCategoriesHolder.error = if (isCategorySelected) null else getString(R.string.category_required_error)
         binding.dropCountriesHolder.error = if (isCountrySelected) null else getString(R.string.country_required_error)
-        return isNameValid && isRucValid && isCategorySelected && isCountrySelected
+        return isNameValid && isRucNotEmpty && isRucValid && isCategorySelected && isCountrySelected
+    }
+    private fun checkTextLength(inputText: TextInputEditText, inputLayout: TextInputLayout, errorMessage: String): Boolean {
+        val isValid = inputText.text.toString().length == RUC_LENGTH
+        inputLayout.error = if (isValid) null else errorMessage
+        return isValid
     }
     private fun checkTextInput(inputText: TextInputEditText, inputLayout: TextInputLayout, errorMessage: String): Boolean {
         val isValid = inputText.text.toString().isNotBlank()
