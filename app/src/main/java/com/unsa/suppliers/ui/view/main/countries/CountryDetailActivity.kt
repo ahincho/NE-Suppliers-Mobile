@@ -20,7 +20,7 @@ class CountryDetailActivity : AppCompatActivity() {
         countryId = intent?.getIntExtra(CountryAdapter.COUNTRY_ID, -1) ?: -1
         setContentView(binding.root)
         countryDetailViewModel.getCountryById(countryId)
-        countryDetailViewModel.country.observe(this) { loadSupplierInfo() }
+        countryDetailViewModel.country.observe(this) { loadCountryInfo() }
         initListeners()
     }
     private fun initListeners() {
@@ -40,7 +40,7 @@ class CountryDetailActivity : AppCompatActivity() {
             }
         }
     }
-    private fun loadSupplierInfo() {
+    private fun loadCountryInfo() {
         binding.detailCountryName.text = countryDetailViewModel.country.value!!.name
         binding.detailCountryState.text = countryDetailViewModel.country.value!!.state
     }
