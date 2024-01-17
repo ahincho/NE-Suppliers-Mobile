@@ -13,6 +13,9 @@ class SupplierRepository @Inject constructor (
     suspend fun attemptGetSupplierById(id: Int): SupplierResponse? {
         return supplierService.getSupplierById(id)
     }
+    suspend fun attemptUpdateSupplier(id: Int, supplierRequest: SupplierRequest) {
+        supplierService.updateSupplier(id, supplierRequest)
+    }
     suspend fun attemptCreateSupplier(supplierRequest: SupplierRequest): SupplierResponse? {
         return supplierService.createSupplier(supplierRequest)
     }

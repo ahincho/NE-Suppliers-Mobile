@@ -1,109 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginVertical="10dp"
-    app:cardCornerRadius="15dp">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingVertical="30dp"
+    android:paddingHorizontal="20dp">
+    <TextView
+        android:id="@+id/detailCategoryHeader"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
-        android:paddingVertical="10dp">
-        <ImageView
-            android:id="@+id/detailCategoryImage"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_margin="10dp"
-            android:contentDescription="@string/category_image"
-            android:src="@drawable/category"
-            app:layout_constraintBottom_toTopOf="@id/detailCategoryButtons"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ImageContrastCheck" />
-        <TextView
-            android:id="@+id/detailCategoryName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/detailCategoryImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/detailCategoryHolders"
-            tools:text="Category Name"/>
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/detailCategoryHolders"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginVertical="10dp"
-            app:layout_constraintStart_toEndOf="@id/detailCategoryImage"
-            app:layout_constraintEnd_toStartOf="@id/detailCategoryValues"
-            app:layout_constraintTop_toBottomOf="@id/detailCategoryName"
-            app:layout_constraintBottom_toTopOf="@id/detailCategoryButtons">
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="@string/state" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/detailCategoryValues"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginVertical="10dp"
-            app:layout_constraintStart_toEndOf="@id/detailCategoryHolders"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detailCategoryName"
-            app:layout_constraintBottom_toTopOf="@id/detailCategoryButtons">
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/detailSupplierState"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="State Name"/>
-        </androidx.appcompat.widget.LinearLayoutCompat>
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/detailCategoryButtons"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:text="@string/category_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:id="@+id/detailCategoryImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginVertical="20dp"
+        android:contentDescription="@string/category_image"
+        android:src="@drawable/category"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailCategoryHeader"
+        app:layout_constraintBottom_toTopOf="@id/detailCategoryFields"
+        tools:ignore="ImageContrastCheck" />
+    <LinearLayout
+        android:id="@+id/detailCategoryFields"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailCategoryImage"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/detailCategoryNameHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detailCategoryImage"
-            app:layout_constraintBottom_toBottomOf="parent">
-            <Button
-                android:id="@+id/btnEnable"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/detailCategoryName"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:backgroundTint="@color/green"
-                android:textStyle="bold"
-                android:text="@string/enable"
-                tools:ignore="VisualLintButtonSize" />
-            <Button
-                android:id="@+id/btnDisable"
-                android:layout_width="wrap_content"
+                android:hint="@string/category_name"
+                android:inputType="text"
+                tools:ignore="VisualLintTextFieldSize,TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dropStateHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:id="@+id/dropStates"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/gold"
-                android:text="@string/disable"
-                android:textStyle="bold"
-                tools:ignore="VisualLintButtonSize" />
-            <Button
-                android:id="@+id/btnDelete"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/red"
-                android:textStyle="bold"
-                android:text="@string/delete"
-                tools:ignore="VisualLintButtonSize" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+                android:hint="@string/category_state"
+                android:popupBackground="@android:color/white"
+                tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="20dp"
+            android:backgroundTint="@color/green"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@string/save"
+            tools:ignore="VisualLintButtonSize" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

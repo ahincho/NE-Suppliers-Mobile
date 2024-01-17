@@ -13,6 +13,9 @@ class CountryRepository @Inject constructor (
     suspend fun attemptGetCountryById(id: Int): CountryResponse? {
         return countryService.getCountryById(id)
     }
+    suspend fun attemptUpdateCountry(id: Int, countryRequest: CountryRequest) {
+        countryService.updateCountry(id, countryRequest)
+    }
     suspend fun attemptCreateCountry(countryRequest: CountryRequest): CountryResponse? {
         return countryService.createCountry(countryRequest)
     }

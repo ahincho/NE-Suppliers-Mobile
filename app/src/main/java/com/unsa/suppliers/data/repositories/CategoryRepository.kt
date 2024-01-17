@@ -16,6 +16,9 @@ class CategoryRepository @Inject constructor (
     suspend fun attemptCreateCategory(categoryRequest: CategoryRequest): CategoryResponse? {
         return categoryService.createCategory(categoryRequest)
     }
+    suspend fun attemptUpdateCategory(id: Int, categoryRequest: CategoryRequest) {
+        categoryService.updateCategory(id, categoryRequest)
+    }
     suspend fun attemptDeleteCategory(id: Int) {
         categoryService.deleteCategory(id)
     }
