@@ -2,9 +2,14 @@ package com.unsa.suppliers.ui.view.main.countries
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.viewModels
+import com.unsa.suppliers.R
 import com.unsa.suppliers.core.Constants
 import com.unsa.suppliers.data.adapters.main.countries.CountryAdapter
+import com.unsa.suppliers.data.dtos.main.countries.CountryRequest
 import com.unsa.suppliers.databinding.ActivityCountryDetailBinding
 import com.unsa.suppliers.ui.viewmodel.main.CountryDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -13,6 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class CountryDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCountryDetailBinding
     private val countryDetailViewModel: CountryDetailViewModel by viewModels()
+    private lateinit var state: String
     private var countryId: Int = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,27 +27,58 @@ class CountryDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
         countryDetailViewModel.getCountryById(countryId)
         countryDetailViewModel.country.observe(this) { loadCountryInfo() }
+        initUserInterface()
         initListeners()
     }
+    private fun initUserInterface() {
+        val states = resources.getStringArray(R.array.states)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, states)
+        binding.dropStates.setAdapter(adapter)
+    }
     private fun initListeners() {
-        binding.btnDelete.setOnClickListener {
-            if (countryDetailViewModel.country.value?.state != Constants.DELETED_STATE) {
-                countryDetailViewModel.deleteCountry(countryId)
-            }
+        binding.dropStates.setOnClickListener {
+            binding.dropStates.text.clear()
         }
-        binding.btnDisable.setOnClickListener {
-            if (countryDetailViewModel.country.value?.state != Constants.DISABLED_STATE) {
-                countryDetailViewModel.disableCountry(countryId)
-            }
+        binding.dropStates.setOnItemClickListener { _, _, position, _ ->
+            state = binding.dropStates.adapter.getItem(position).toString()
         }
-        binding.btnEnable.setOnClickListener {
-            if (countryDetailViewModel.country.value?.state != Constants.ACTIVE_STATE) {
-                countryDetailViewModel.enableCountry(countryId)
+        binding.btnSave.setOnClickListener {
+            if (checkStateWasEdited()) {
+                when (state) {
+                    Constants.ACTIVE_STATE -> {
+                        if (countryDetailViewModel.country.value?.state != Constants.ACTIVE_STATE) {
+                            countryDetailViewModel.enableCountry(countryId)
+                        }
+                    }
+                    Constants.DELETED_STATE -> {
+                        if (countryDetailViewModel.country.value?.state != Constants.DELETED_STATE) {
+                            countryDetailViewModel.deleteCountry(countryId)
+                        }
+                    }
+                    Constants.DISABLED_STATE -> {
+                        if (countryDetailViewModel.country.value?.state != Constants.DISABLED_STATE) {
+                            countryDetailViewModel.disableCountry(countryId)
+                        }
+                    }
+                }
+                if (checkCategoryWasEdited()) {
+                    countryDetailViewModel.updateCountry(countryId, CountryRequest(binding.detailCountryName.text.toString()))
+                }
+                Toast.makeText(this, "Country Updated", Toast.LENGTH_SHORT).show()
             }
         }
     }
+    private fun checkStateWasEdited(): Boolean {
+        val isNotEmpty = state.isNotEmpty()
+        val isEdited = !state.equals(countryDetailViewModel.country.value?.name, true)
+        return isNotEmpty && isEdited
+    }
+    private fun checkCategoryWasEdited(): Boolean {
+        return !binding.detailCountryName.text.toString().equals(countryDetailViewModel.country.value.toString(), true)
+    }
     private fun loadCountryInfo() {
-        binding.detailCountryName.text = countryDetailViewModel.country.value!!.name
-        binding.detailCountryState.text = countryDetailViewModel.country.value!!.state
+        binding.detailCountryName.text = Editable.Factory.getInstance().newEditable(countryDetailViewModel.country.value!!.name)
+        binding.dropStates.text = Editable.Factory.getInstance().newEditable(countryDetailViewModel.country.value!!.state)
+        state = countryDetailViewModel.country.value!!.state
     }
 }

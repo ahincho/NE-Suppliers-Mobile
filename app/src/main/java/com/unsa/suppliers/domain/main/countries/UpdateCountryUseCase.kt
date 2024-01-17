@@ -4,7 +4,7 @@ import com.unsa.suppliers.data.dtos.main.countries.CountryRequest
 import com.unsa.suppliers.data.repositories.CountryRepository
 import javax.inject.Inject
 
-class UpdateCountryRequest @Inject constructor (
+class UpdateCountryUseCase @Inject constructor (
     private val countryRepository: CountryRepository
 ) {
     suspend operator fun invoke(id: Int, countryRequest: CountryRequest) {

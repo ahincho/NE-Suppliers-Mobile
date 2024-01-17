@@ -3,6 +3,7 @@ package com.unsa.suppliers.ui.view.main.categories
 import android.os.Bundle
 import android.text.Editable
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.unsa.suppliers.R
@@ -63,12 +64,13 @@ class CategoryDetailActivity : AppCompatActivity() {
                 if (checkCategoryWasEdited()) {
                     categoryDetailViewModel.updateCategory(categoryId, CategoryRequest(binding.detailCategoryName.text.toString()))
                 }
+                Toast.makeText(this, "Category Updated", Toast.LENGTH_SHORT).show()
             }
         }
     }
     private fun checkStateWasEdited(): Boolean {
         val isNotEmpty = state.isNotEmpty()
-        val isEdited = !state.equals(categoryDetailViewModel.category.value.toString(), true)
+        val isEdited = !state.equals(categoryDetailViewModel.category.value?.state, true)
         return isNotEmpty && isEdited
     }
     private fun checkCategoryWasEdited(): Boolean {
