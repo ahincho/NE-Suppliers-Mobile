@@ -45,21 +45,9 @@ class CategoryDetailActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             if (checkStateWasEdited()) {
                 when (state) {
-                    Constants.ACTIVE_STATE -> {
-                        if (categoryDetailViewModel.category.value?.state != Constants.ACTIVE_STATE) {
-                            categoryDetailViewModel.enableCategory(categoryId)
-                        }
-                    }
-                    Constants.DELETED_STATE -> {
-                        if (categoryDetailViewModel.category.value?.state != Constants.DELETED_STATE) {
-                            categoryDetailViewModel.deleteCategory(categoryId)
-                        }
-                    }
-                    Constants.DISABLED_STATE -> {
-                        if (categoryDetailViewModel.category.value?.state != Constants.DISABLED_STATE) {
-                            categoryDetailViewModel.disableCategory(categoryId)
-                        }
-                    }
+                    Constants.ACTIVE_STATE -> if (shouldPerformAction(Constants.ACTIVE_STATE)) categoryDetailViewModel.enableCategory(categoryId)
+                    Constants.DELETED_STATE -> if (shouldPerformAction(Constants.DELETED_STATE)) categoryDetailViewModel.deleteCategory(categoryId)
+                    Constants.DISABLED_STATE -> if (shouldPerformAction(Constants.DISABLED_STATE)) categoryDetailViewModel.disableCategory(categoryId)
                 }
                 if (checkCategoryWasEdited()) {
                     categoryDetailViewModel.updateCategory(categoryId, CategoryRequest(binding.detailCategoryName.text.toString()))
@@ -67,6 +55,9 @@ class CategoryDetailActivity : AppCompatActivity() {
                 Toast.makeText(this, "Category Updated", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    private fun shouldPerformAction(desiredState: String): Boolean {
+        return categoryDetailViewModel.category.value?.state != desiredState
     }
     private fun checkStateWasEdited(): Boolean {
         val isNotEmpty = state.isNotEmpty()

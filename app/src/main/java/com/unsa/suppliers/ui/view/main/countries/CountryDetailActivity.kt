@@ -45,21 +45,9 @@ class CountryDetailActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             if (checkStateWasEdited()) {
                 when (state) {
-                    Constants.ACTIVE_STATE -> {
-                        if (countryDetailViewModel.country.value?.state != Constants.ACTIVE_STATE) {
-                            countryDetailViewModel.enableCountry(countryId)
-                        }
-                    }
-                    Constants.DELETED_STATE -> {
-                        if (countryDetailViewModel.country.value?.state != Constants.DELETED_STATE) {
-                            countryDetailViewModel.deleteCountry(countryId)
-                        }
-                    }
-                    Constants.DISABLED_STATE -> {
-                        if (countryDetailViewModel.country.value?.state != Constants.DISABLED_STATE) {
-                            countryDetailViewModel.disableCountry(countryId)
-                        }
-                    }
+                    Constants.ACTIVE_STATE -> if (shouldPerformAction(Constants.ACTIVE_STATE)) countryDetailViewModel.enableCountry(countryId)
+                    Constants.DELETED_STATE -> if (shouldPerformAction(Constants.DELETED_STATE)) countryDetailViewModel.deleteCountry(countryId)
+                    Constants.DISABLED_STATE -> if (shouldPerformAction(Constants.DISABLED_STATE)) countryDetailViewModel.disableCountry(countryId)
                 }
                 if (checkCategoryWasEdited()) {
                     countryDetailViewModel.updateCountry(countryId, CountryRequest(binding.detailCountryName.text.toString()))
@@ -67,6 +55,9 @@ class CountryDetailActivity : AppCompatActivity() {
                 Toast.makeText(this, "Country Updated", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    private fun shouldPerformAction(desiredState: String): Boolean {
+        return countryDetailViewModel.country.value?.state != desiredState
     }
     private fun checkStateWasEdited(): Boolean {
         val isNotEmpty = state.isNotEmpty()

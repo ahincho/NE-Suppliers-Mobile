@@ -57,6 +57,8 @@
     <string name="category_state">Category State</string>
     <string name="country_details">Country Details</string>
     <string name="country_state">Country State</string>
+    <string name="suppliers_details">Suppliers Details</string>
+    <string name="supplier_state">Supplier State</string>
     <string-array name="states">
         <item>Active</item>
         <item>Disabled</item>
