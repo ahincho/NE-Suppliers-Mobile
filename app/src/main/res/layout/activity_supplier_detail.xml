@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:paddingVertical="30dp"
+    android:paddingHorizontal="20dp" >
+    <TextView
+        android:id="@+id/detailSupplierHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:text="@string/suppliers_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/detailSupplierImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginVertical="10dp"
+        android:contentDescription="@string/supplier_image"
+        android:src="@drawable/supplier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailSupplierHeader"
+        tools:ignore="ImageContrastCheck" />
+    <LinearLayout
+        android:id="@+id/detailSupplierFields"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detailSupplierImage" >
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/detailSupplierNameHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/detailSupplierName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/supplier_name"
+                android:inputType="text"
+                tools:ignore="VisualLintTextFieldSize,TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout >
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/detailSupplierRucHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/detailSupplierRuc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/supplier_ruc"
+                android:inputType="text"
+                tools:ignore="VisualLintTextFieldSize,TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout >
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dropCategoryHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:id="@+id/dropCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/supplier_category"
+                android:popupBackground="@android:color/white"
+                tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dropCountryHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:id="@+id/dropCountries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/supplier_country"
+                android:popupBackground="@android:color/white"
+                tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dropStateHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:id="@+id/dropStates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/supplier_state"
+                android:popupBackground="@android:color/white"
+                tools:ignore="SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout >
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="20dp"
+            android:backgroundTint="@color/green"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@string/save"
+            tools:ignore="VisualLintButtonSize" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

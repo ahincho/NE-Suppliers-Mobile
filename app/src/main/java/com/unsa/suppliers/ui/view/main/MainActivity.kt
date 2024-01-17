@@ -8,6 +8,9 @@ import androidx.fragment.app.replace
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.unsa.suppliers.R
 import com.unsa.suppliers.databinding.ActivityMainBinding
+import com.unsa.suppliers.ui.view.main.categories.CategoryFragment
+import com.unsa.suppliers.ui.view.main.countries.CountryFragment
+import com.unsa.suppliers.ui.view.main.suppliers.SupplierFragment
 import com.unsa.suppliers.ui.viewmodel.main.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,9 +29,15 @@ class MainActivity : AppCompatActivity() {
         }
         navigation = binding.mainNavMenu
         initListeners()
+        initUserInterface()
     }
     private fun initListeners() {
         navListener()
+    }
+    private fun initUserInterface() {
+        mainViewModel.getAllSuppliers()
+        mainViewModel.getAllCategories()
+        mainViewModel.getAllCountries()
     }
     private fun navListener() {
         navigation.setOnItemSelectedListener { item ->

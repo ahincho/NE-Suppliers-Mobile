@@ -1,5 +1,7 @@
 <resources>
+    <!-- App Info -->
     <string name="app_name">Suppliers</string>
+    <!-- Auth Activity" -->
     <string name="welcome_back">Welcome Back!</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -17,9 +19,49 @@
     <string name="name_required">Name is required</string>
     <string name="lastname_required">Lastname is required</string>
     <string name="email_required">Email is required</string>
+    <string name="category_name_required">Category name is required</string>
+    <string name="country_name_required">Country name is required</string>
+    <string name="supplier_name_required">Supplier name is required</string>
+    <string name="supplier_ruc_required">Supplier ruc is required</string>
+    <string name="supplier_ruc_too_short">Supplier ruc has 11 characters</string>
+    <string name="category_required_error">Please select a category</string>
+    <string name="country_required_error">Please select a country</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="suppliers">Suppliers</string>
     <string name="categories">Categories</string>
     <string name="countries">Countries</string>
+    <string name="supplier_image">Supplier Image</string>
+    <string name="category">Category</string>
+    <string name="ruc">RUC</string>
+    <string name="country">Country</string>
+    <string name="state">State</string>
+    <string name="delete">Delete</string>
+    <string name="enable">Enable</string>
+    <string name="disable">Disable</string>
+    <string name="id">Id</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="create_supplier">Create Supplier</string>
+    <string name="supplier_name">Supplier Name</string>
+    <string name="supplier_ruc">Supplier Ruc</string>
+    <string name="create_category">Create Category</string>
+    <string name="category_name">Category Name</string>
+    <string name="create_country">Create Country</string>
+    <string name="country_name">Country Name</string>
+    <string name="category_image">Category Image</string>
+    <string name="country_image">Country Image</string>
+    <string name="supplier_category">Supplier Category</string>
+    <string name="supplier_country">Supplier Country</string>
+    <string name="category_details">Category Details</string>
+    <string name="save">Save</string>
+    <string name="category_state">Category State</string>
+    <string name="country_details">Country Details</string>
+    <string name="country_state">Country State</string>
+    <string name="suppliers_details">Suppliers Details</string>
+    <string name="supplier_state">Supplier State</string>
+    <string-array name="states">
+        <item>Active</item>
+        <item>Disabled</item>
+        <item>Deleted</item>
+    </string-array>
 </resources>

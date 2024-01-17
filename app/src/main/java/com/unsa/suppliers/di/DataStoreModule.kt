@@ -1,7 +1,7 @@
 package com.unsa.suppliers.di
 
 import android.content.Context
-import com.unsa.suppliers.data.PreferencesRepository
+import com.unsa.suppliers.data.repositories.PreferencesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

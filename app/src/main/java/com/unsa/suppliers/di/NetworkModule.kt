@@ -1,12 +1,13 @@
 package com.unsa.suppliers.di
 
-import com.unsa.suppliers.core.Constants
-import com.unsa.suppliers.data.network.SupplierApiClient
-import com.unsa.suppliers.data.network.SupplierAuthClient
+import com.unsa.suppliers.core.Constants.Companion.API_REST_SERVICE
+import com.unsa.suppliers.data.network.interceptors.AuthInterceptor
+import com.unsa.suppliers.data.network.clients.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -16,20 +17,34 @@ import javax.inject.Singleton
 object NetworkModule {
     @Singleton
     @Provides
-    fun provideRetrofit(): Retrofit {
+    fun provideRetrofitBuilder(): Retrofit.Builder {
         return Retrofit.Builder()
-            .baseUrl(Constants.SUPPLIER_API_REST_URL)
+            .baseUrl(API_REST_SERVICE)
             .addConverterFactory(GsonConverterFactory.create())
-            .build()
     }
     @Singleton
     @Provides
-    fun provideSupplierAuthClient(retrofit: Retrofit): SupplierAuthClient {
-        return retrofit.create(SupplierAuthClient::class.java)
+    fun provideOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
+        return OkHttpClient.Builder().addInterceptor(authInterceptor).build()
     }
     @Singleton
     @Provides
-    fun provideSupplierApiClient(retrofit: Retrofit): SupplierApiClient {
-        return retrofit.create(SupplierApiClient::class.java)
+    fun provideSupplierAuthClient(retrofitBuilder: Retrofit.Builder): AuthApiClient {
+        return retrofitBuilder.build().create(AuthApiClient::class.java)
+    }
+    @Singleton
+    @Provides
+    fun provideSupplierApiClient(retrofit: Retrofit.Builder, okHttpClient: OkHttpClient): SupplierApiClient {
+        return retrofit.client(okHttpClient).build().create(SupplierApiClient::class.java)
+    }
+    @Singleton
+    @Provides
+    fun provideCategoryApiClient(retrofit: Retrofit.Builder, okHttpClient: OkHttpClient): CategoryApiClient {
+        return retrofit.client(okHttpClient).build().create(CategoryApiClient::class.java)
+    }
+    @Singleton
+    @Provides
+    fun provideCountryApiClient(retrofit: Retrofit.Builder, okHttpClient: OkHttpClient): CountryApiClient {
+        return retrofit.client(okHttpClient).build().create(CountryApiClient::class.java)
     }
 }
