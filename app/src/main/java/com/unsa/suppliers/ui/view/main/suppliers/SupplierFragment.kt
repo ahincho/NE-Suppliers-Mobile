@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.unsa.suppliers.data.adapters.main.suppliers.SupplierAdapter
@@ -19,7 +20,7 @@ class SupplierFragment : Fragment() {
     private lateinit var mainViewModel: MainViewModel
     private lateinit var adapter: SupplierAdapter
     private val manager = LinearLayoutManager(context)
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSupplierBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -30,6 +31,19 @@ class SupplierFragment : Fragment() {
         mainViewModel.suppliers.observe(viewLifecycleOwner) {
             initRecyclerView(mainViewModel.suppliers.value ?: emptyList())
         }
+        binding.supplierSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val filteredSuppliers = mainViewModel.suppliers.value?.filter {
+                        supplier -> supplier.name.contains(newText.orEmpty(), ignoreCase = true)
+                }
+                adapter.updateSuppliers(filteredSuppliers)
+                return true
+            }
+        })
         initListeners()
     }
     override fun onResume() {

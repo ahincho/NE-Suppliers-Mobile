@@ -1,11 +1,13 @@
 package com.unsa.suppliers.data.adapters.main.suppliers
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.unsa.suppliers.R
+import com.unsa.suppliers.data.dtos.main.countries.CountryResponse
 import com.unsa.suppliers.data.dtos.main.suppliers.SupplierResponse
 import com.unsa.suppliers.ui.view.main.suppliers.SupplierDetailActivity
 
@@ -30,5 +32,10 @@ class SupplierAdapter (
             it.context.startActivity(intent)
         }
         holder.renderSupplier(supplierResponse)
+    }
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateSuppliers(suppliers: List<SupplierResponse>?) {
+        this.suppliers = suppliers ?: emptyList()
+        notifyDataSetChanged()
     }
 }
