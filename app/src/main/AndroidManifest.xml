@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+<<<<<<< HEAD
+    <uses-permission android:name="android.permission.INTERNET" />
+
+=======
+>>>>>>> 85cedf545b88ebf3ae4a42f913fee86dd47732b8
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,7 +18,20 @@
         android:theme="@style/Theme.Suppliers"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
+            android:name=".ui.view.main.countries.CountryDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.main.categories.CategoryDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.main.suppliers.SupplierDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.splash.SplashActivity"
+=======
             android:name=".MainActivity"
+>>>>>>> 85cedf545b88ebf3ae4a42f913fee86dd47732b8
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
