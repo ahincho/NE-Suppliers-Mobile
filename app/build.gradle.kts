@@ -48,6 +48,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     // Lottie Dependency
     implementation("com.airbnb.android:lottie-compose:6.2.0")
+    // Fragment Dependency
     implementation("androidx.fragment:fragment-ktx:1.6.2")
     // Retrofit Dependency
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
