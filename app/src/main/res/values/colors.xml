@@ -2,10 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< HEAD
     <color name="sky_blue">#C9E1FD</color>
     <color name="blue">#0000EE</color>
     <color name="light_blue">#0099FF</color>
     <color name="red">#FF0000</color>
     <color name="green">#006400</color>
     <color name="gold">#D69500</color>
+=======
+>>>>>>> 85cedf545b88ebf3ae4a42f913fee86dd47732b8
 </resources>
